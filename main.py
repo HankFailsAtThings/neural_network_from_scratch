@@ -1,5 +1,5 @@
+import NeuralNet
 import DataParser
-
 
 LFfile = "../datasets/training/train-labels-idx1-ubyte"
 IFfile = "../datasets/training/train-images-idx3-ubyte" 
@@ -7,9 +7,13 @@ IFfile = "../datasets/training/train-images-idx3-ubyte"
 
 parser = DataParser.DataParser()
 
-parser.parse(IFfile, LFfile) 
+data = parser.parse(IFfile, LFfile) 
 
 
-#step 3 , uhh 
+#step 2, NN
+net = NeuralNet.NeuralNet()
 
+outputVector = net.choseDigit(data[1][1])
+#print(data[1][1])
+print(outputVector)
 #step 4 profit 

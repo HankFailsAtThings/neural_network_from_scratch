@@ -6,7 +6,7 @@
 #			2, the handwritten integer 
 #
 import struct
-
+import numpy as np
 
 class DataParser(object): 
 
@@ -51,7 +51,8 @@ class DataParser(object):
 	def parseImage(self, file):
 		image =  self.IFHandle.read(784)
 		bitmapImage = struct.unpack(">784B", image) 
-		return bitmapImage
+		matrix = np.array(bitmapImage).reshape((784,1))
+		return matrix
 			
 		
 	
